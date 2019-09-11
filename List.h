@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
 #include "ListIterator.h"
-#include "Item.h"
 #define DEFUALT_LIST_CAPACITY 10
 template <class T>
 class ListIterator;

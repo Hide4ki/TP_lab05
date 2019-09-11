@@ -1,24 +1,15 @@
 #pragma once
 
-#include "List.h"
-#include "Administrator.h"
-#include "Presenter.h"
-#include "Program.h"
+#include <string>
+#include<fstream>
 
-enum {ADMIN, PREDENTER, PROGRAM};
+using namespace std;
 
 class Conference
 {
 public:
-	Conference(void);
-	~Conference(void);
-private:
-	List<Administrator*> admins;
-	List<Presenter*> presenters;
-	Program myProgram;
+	Conference(const string&);
+	Conference(const Conference&);
+	virtual ~Conference(void);
+	virtual void WriteInFile(ofstream) = 0;
 };
-
-MyException(void);
-	MyException(const char *);
-	MyException(const MyException &);
-	~MyException(void);

@@ -1,4 +1,7 @@
 #pragma once
+#include <iostream>
+
+using namespace std;
 
 template <class T>
 class Iterator
@@ -10,7 +13,13 @@ public:
 	virtual T CurrentItem(void) const = 0;
 protected:
 	Iterator(void);
+	virtual ~Iterator(void);
 };
+
+template <class T>
+Iterator<T>::Iterator(void)
+{
+}
 
 template <class T>
 Iterator<T>::Iterator(void)
