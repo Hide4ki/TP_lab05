@@ -4,6 +4,9 @@
 #include "List.h"
 #include "IteratorPtr.h"
 #include "Conference.h"
+#include "AdministratorBilder.h"
+#include "SpeakerBilder.h"
+#include "ProgramBilder.h"
 
 using namespace std;
 
@@ -14,12 +17,12 @@ public:
 	Keeper(ifstream&);
 	Keeper(const Keeper&);
 	~Keeper(void);
-	void addObj(const Conference *);
-	void deleteObj(const Conference *);
-	bool findObj(const Conference &);
+	void addObj(Conference *);
+	void deleteObj(Conference *);
+	bool findObj(const Conference *);
 	void LoadFromFile(ifstream&);  
 	void SafeToFile(ofstream&);
 private:
-	List<Conference*>ListConferense;
+	List<Conference*> *ConParts;
 };
 
