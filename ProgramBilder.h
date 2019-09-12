@@ -4,6 +4,8 @@
 #include "Program.h"
 #include "Presetion.h"
 
+typedef enum{PDATE, PNAME, PADDPRESENT, PFIN, PENDBILD} PBILD;
+
 class Program;
 
 class ProgramBilder:public Bilder

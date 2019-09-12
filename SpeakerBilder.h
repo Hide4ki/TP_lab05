@@ -2,6 +2,9 @@
 
 #include "Bilder.h"
 #include "Speaker.h"
+
+typedef enum{SNAME, SSURNAME, SFATHERNAME, SORG, SANNO, SLEC, SFIN, SENDBILD} SBILD;
+
 class Speaker;
 
 class SpeakerBilder:Bilder

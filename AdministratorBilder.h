@@ -4,6 +4,8 @@
 #include "Administrator.h"
 #include "Bilder.h"
 
+typedef enum{ANAME, ASURNAME, AFATHERNAME, APOSITION, ARESPONSIBLE, AFIN, AENDBILD} ABILD;
+
 class Administrator;
 
 class AdministratorBilder:public Bilder

@@ -45,24 +45,24 @@ void Keeper::deleteObj(Conference *myConPart)
 				case ADM:
 					if(*((Administrator*)myConPart) == *((Administrator*)i->CurrentItem()))
 					{
-						ConParts->Remove(i->CurrentItem());
 						delete i->CurrentItem();
+						ConParts->Remove(i->CurrentItem());
 						return;
 					}
 					break;
 				case SPE:
 					if(*((Speaker*)myConPart) == *((Speaker*)i->CurrentItem()))
 					{
-						ConParts->Remove(i->CurrentItem());
 						delete i->CurrentItem();
+						ConParts->Remove(i->CurrentItem());
 						return;
 					}
 					break;
 				case PRO:
 					if(*((Program*)myConPart) == *((Program*)i->CurrentItem()))
 					{
-						ConParts->Remove(i->CurrentItem());
 						delete i->CurrentItem();
+						ConParts->Remove(i->CurrentItem());
 						return;
 					}
 					break;
@@ -98,12 +98,18 @@ bool Keeper::findObj(const Conference *myConPart)
 
 void Keeper::LoadFromFile(ifstream&stream)
 {
+	IteratorPtr<Conference*> i = ConParts->GetCorrectIterator();
+	for(i->First(); !i->IsDone(); i->Next())
+	{
+		delete i->CurrentItem();
+		ConParts->Remove(i->CurrentItem());
+	}
 	int cnt;
 	stream >> cnt;
 	int t;
-	AdministratorBilder newAB;
-	SpeakerBilder newSB;
-	ProgramBilder newPB;
+	AdministratorBilder *newAB = 0;
+	SpeakerBilder *newSB = 0;
+	ProgramBilder *newPB = 0;
 
 	for(int i = 0; i<cnt; i++)
 	{
@@ -111,16 +117,22 @@ void Keeper::LoadFromFile(ifstream&stream)
 		switch((TYPE)t)
 		{
 			case ADM:
-				stream >> newAB;
-				ConParts->Append(new Administrator(newAB));
+				newAB = new AdministratorBilder;
+				stream >> *newAB;
+				ConParts->Append(new Administrator(*newAB));
+				delete newAB;
 				break;
 			case SPE:
-				stream >> newSB;
-				ConParts->Append(new Speaker(newSB));
+				newSB = new SpeakerBilder;
+				stream >> *newSB;
+				ConParts->Append(new Speaker(*newSB));
+				delete newSB;
 				break;
 			case PRO:
-				stream >> newPB;
-				ConParts->Append(new Program(newPB));
+				newPB = new ProgramBilder;
+				stream >> *newPB;
+				ConParts->Append(new Program(*newPB));
+				delete newPB;
 				break;
 		}
 	}
