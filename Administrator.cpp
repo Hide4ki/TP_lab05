@@ -6,6 +6,7 @@ using namespace std;
 
 Administrator::Administrator(void)
 {
+	myType = ADM;
 	cout << "Object of class - Administrator" << endl << "Magic method - constructor without parameters" << endl;
 }
 
@@ -14,18 +15,18 @@ Administrator::Administrator(AdministratorBilder &bild)
 	myType = ADM;
 	cout << "Object of class - Administrator" << endl << "Magic method - constructor with parameters" << endl;
 	string error = "Attempt to set administrator without:";
-	if(bild.name!="")
-		error += "name,";
-	if(bild.surname!="")	
-		error += "surname,";
-	if(bild.father_name!="")	
-		error += "father name,";
-	if(bild.position!="")
-		error += "position,";
-	if(bild.responsible!="")
-		error += "responsible.";
+	if(bild.name=="")
+		error += " name,";
+	if(bild.surname=="")	
+		error += " surname,";
+	if(bild.father_name=="")	
+		error += " father name,";
+	if(bild.position=="")
+		error += " position,";
+	if(bild.responsible=="")
+		error += " responsible.";
 	error[error.size()-1] = '.';
-	if(error!="Attempt to set administrator without:")
+	if(error!="Attempt to set administrator without.")
 		throw MyException(error.c_str());
 	name		= bild.name;
 	responsible	= bild.responsible;
@@ -50,7 +51,7 @@ Administrator::~Administrator(void)
 	cout << "Object of class - Administrator" << endl << "Magic method - destructor" << endl;
 }
 
-void Administrator::WriteInFile(ofstream &stream)
+void Administrator::WriteInFile(ofstream &stream)const
 {
 	stream << name         << endl; 
 	stream << surname      << endl;
@@ -59,7 +60,7 @@ void Administrator::WriteInFile(ofstream &stream)
 	stream << responsible  << endl; 
 }
 
-bool Administrator::operator == (Administrator&B)
+bool Administrator::operator == (const Administrator&B)const
 {
 	return name == B.name && surname == B.surname &&  father_name == B.father_name && position == B.position && responsible == B.responsible?true:false;
 }

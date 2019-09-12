@@ -2,6 +2,7 @@
 
 #include "Bilder.h"
 #include "Speaker.h"
+class Speaker;
 
 class SpeakerBilder:Bilder
 {
@@ -10,17 +11,19 @@ public:
 	SpeakerBilder(string&);
 	SpeakerBilder(const SpeakerBilder&);
 	~SpeakerBilder(void);
-	void ReadInFile(ostream&)override;
+	void ReadInFile(ifstream&)override;
 	SpeakerBilder &SetName(string&);
 	SpeakerBilder &SetSurname(string&);
+	SpeakerBilder &SetFathername(string&);
 	SpeakerBilder &SetOrganization(string&);
 	SpeakerBilder &SetLecture(string&);
 	SpeakerBilder &SetAnnotation(string&);
+	friend istream &operator >> (istream&, SpeakerBilder&);
 private:
 	friend Speaker;
 	string name;
 	string surname;
-	string fathername;
+	string father_name;
 	string organization;
 	string myLecture;
 	string annotation;

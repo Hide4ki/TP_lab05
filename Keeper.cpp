@@ -2,19 +2,21 @@
 
 Keeper::Keeper(void)
 {
+	ConParts = new List<Conference*>;
 	cout << "Object of class - Keeper" << endl << "Magic method - constructor without parameters" << endl;
 }
 
 Keeper::Keeper(ifstream &stream)
 {
+	ConParts = new List<Conference*>;
 	LoadFromFile(stream);
 	cout << "Object of class - Keeper" << endl << "Magic method - constructor with parameters" << endl;
-
 }
 
 Keeper::Keeper(const Keeper&myKeeper)
 {
-	ConParts = myKeeper.ConParts;
+	ConParts = new List<Conference*>;
+	*ConParts = *myKeeper.ConParts;
 	cout << "Object of class - Keeper" << endl << "Magic method - constructor for copy" << endl;
 }
 
@@ -22,8 +24,9 @@ Keeper::~Keeper(void)
 {
 	IteratorPtr<Conference*> i = ConParts->GetCorrectIterator();
 	for(i->First(); !i->IsDone(); i->Next())
-		delete *i->CurrentItem();
+		delete i->CurrentItem();
 	cout << "Object of class - Keeper" << endl << "Magic method - destructor" << endl;
+	delete ConParts;
 }
 
 void Keeper::addObj(Conference *myConPart)

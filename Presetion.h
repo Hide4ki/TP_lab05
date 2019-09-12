@@ -1,6 +1,8 @@
 #pragma once
 #include <ctime>
 #include <string>
+#include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -15,6 +17,9 @@ public:
 	void setDate(time_t);
 	string &getName(void);
 	time_t getDate(void);
+	friend ofstream &operator<<(ofstream &stream, Presetion &myPresent);
+	friend ifstream &operator>>(ifstream &stream, Presetion &myPresent);
+	friend istream &operator>>(istream &stream, Presetion &myPresent);
 private:
 	time_t stTime;
 	string name;

@@ -2,6 +2,9 @@
 #include <iostream>
 #include "ListIterator.h"
 #define DEFUALT_LIST_CAPACITY 10
+
+using namespace std;
+
 template <class T>
 class ListIterator;
 
@@ -423,7 +426,7 @@ ListIterator<T> *List<T>::GetCorrectIterator(void)
 template <class T>
 typename List<T>::Elem *List<T>::SearchElem(const T &searchItem)
 {
-	Elem<T> *now = _first;
+	Elem *now = _first;
 	
 	while(now!=_last)
 	{

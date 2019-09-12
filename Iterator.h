@@ -11,9 +11,9 @@ public:
 	virtual void Next(void) = 0;
 	virtual bool IsDone(void) const = 0;
 	virtual T CurrentItem(void) const = 0;
+	virtual ~Iterator(void);
 protected:
 	Iterator(void);
-	virtual ~Iterator(void);
 };
 
 template <class T>
@@ -22,6 +22,6 @@ Iterator<T>::Iterator(void)
 }
 
 template <class T>
-Iterator<T>::Iterator(void)
+Iterator<T>::~Iterator(void)
 {
 }

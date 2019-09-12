@@ -10,6 +10,7 @@ AdministratorBilder::AdministratorBilder(void)
 	father_name = "";
 	position    = "";
 	responsible = "";
+	cout << "Object of class - AdministratorBilder" << endl << "Magic method - constructor without parameters" << endl;
 }
 
 AdministratorBilder::AdministratorBilder(string &name):name(name)
@@ -18,6 +19,7 @@ AdministratorBilder::AdministratorBilder(string &name):name(name)
 	father_name = "";
 	position    = "";
 	responsible = "";
+	cout << "Object of class - AdministratorBilder" << endl << "Magic method - constructor with parameters" << endl;
 }
 
 AdministratorBilder::AdministratorBilder(const AdministratorBilder &myBilder)
@@ -27,10 +29,12 @@ AdministratorBilder::AdministratorBilder(const AdministratorBilder &myBilder)
 	responsible = myBilder.responsible;
 	father_name = myBilder.father_name;
 	position = myBilder.position;
+	cout << "Object of class - AdministratorBilder" << endl << "Magic method - constructor for copy" << endl;
 }
 
 AdministratorBilder::~AdministratorBilder(void)
 {
+	cout << "Object of class - AdministratorBilder" << endl << "Magic method - destructor" << endl;
 }
 
 void AdministratorBilder::ReadInFile(ifstream &stream)
@@ -72,7 +76,7 @@ AdministratorBilder &AdministratorBilder::SetResponsible(string &Nresponsible)
 	return *this;
 }
 
-ostream &operator >> (istream &stream, AdministratorBilder &myBilder)
+istream &operator >> (istream &stream, AdministratorBilder &myBilder)
 {
 	if(myBilder.name=="")
 	{
@@ -99,4 +103,5 @@ ostream &operator >> (istream &stream, AdministratorBilder &myBilder)
 		cout << "Enter responsible:";
 		stream >> myBilder.responsible;
 	}
+	return stream;
 }

@@ -4,6 +4,7 @@
 #include "Conference.h"
 
 using namespace std;
+class AdministratorBilder;
 
 class Administrator:public Conference
 {
@@ -11,8 +12,8 @@ public:
 	Administrator(AdministratorBilder &);
 	Administrator(const Administrator &);
 	~Administrator(void);
-	void WriteInFile(ofstream&) override;
-	bool operator == (Administrator&);
+	void WriteInFile(ofstream&) const override;
+	bool operator == (const Administrator&)const;
 private:
 	string name;
 	string surname;

@@ -19,7 +19,7 @@ public:
 	AdministratorBilder &SetFatherName(string&);
 	AdministratorBilder &SetPosition(string&);
 	AdministratorBilder &SetResponsible(string&);
-	friend ostream &operator >> (istream&, AdministratorBilder&);
+	friend istream &operator >> (istream&, AdministratorBilder&);
 private:
 	friend Administrator;
 	string name;
