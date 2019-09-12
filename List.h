@@ -84,17 +84,21 @@ bool List<T>::Elem::fictitious(void)
 template <class T>
 List<T>::Elem::Elem(void):next(0),prev(0),item(0)
 {
+	cout << "Object of class - Elem" << endl << "Magic method - constructor without parameters" << endl;
 }
 
 template <class T>
 List<T>::Elem::~Elem(void)
 {
+	cout << "Object of class - Elem" << endl << "Magic method - destructor" << endl;
 	delete item;
 }
 
 template <class T>
 List<T>::List(const List<T> &myList)
 {
+	cout << "Object of class - "<< typeid(*this).name() << endl << "Magic method - constructor for copy" << endl;
+	
 	Init();
 
 	ListIterator<T> i(&myList);
@@ -106,6 +110,7 @@ List<T>::List(const List<T> &myList)
 template <class T>
 List<T>::List(long size)
 {
+	cout << "Object of class - " << typeid(*this).name() << endl << "Magic method - constructor with parameters" << endl;
 	Init();
 
 	Elem *temp = _first = _last = new Elem;
@@ -123,6 +128,8 @@ List<T>::List(long size)
 template <class T>
 List<T>::~List(void)
 {
+	cout << "Object of class - " << typeid(*this).name() << endl << "Magic method - destructor" << endl;
+
 	Elem *i = _first;
 	_first->prev->next = 0;
 	while(i->next)
