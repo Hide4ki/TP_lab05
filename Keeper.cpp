@@ -22,7 +22,7 @@ Keeper::Keeper(const Keeper&myKeeper)
 
 Keeper::~Keeper(void)
 {
-	IteratorPtr<Conference*> i = ConParts->GetCorrectIterator();
+	IteratorPtr<Conference*> i(ConParts->GetCorrectIterator());
 	for(i->First(); !i->IsDone(); i->Next())
 		delete i->CurrentItem();
 	cout << "Object of class - Keeper" << endl << "Magic method - destructor" << endl;
@@ -36,7 +36,7 @@ void Keeper::addObj(Conference *myConPart)
 
 void Keeper::deleteObj(Conference *myConPart)
 {
-	IteratorPtr<Conference*> i = ConParts->GetCorrectIterator();
+	IteratorPtr<Conference*> i(ConParts->GetCorrectIterator());
 	for(i->First(); !i->IsDone(); i->Next())
 	{
 		if(myConPart->getType() == i->CurrentItem()->getType())
@@ -73,7 +73,7 @@ void Keeper::deleteObj(Conference *myConPart)
 
 bool Keeper::findObj(const Conference *myConPart)
 {
-	IteratorPtr<Conference*> i = ConParts->GetCorrectIterator();
+	IteratorPtr<Conference*> i(ConParts->GetCorrectIterator());
 	for(i->First(); !i->IsDone(); i->Next())
 	{
 		if(myConPart->getType() == i->CurrentItem()->getType())
@@ -98,7 +98,7 @@ bool Keeper::findObj(const Conference *myConPart)
 
 void Keeper::LoadFromFile(ifstream&stream)
 {
-	IteratorPtr<Conference*> i = ConParts->GetCorrectIterator();
+	IteratorPtr<Conference*> i(ConParts->GetCorrectIterator());
 	for(i->First(); !i->IsDone(); i->Next())
 	{
 		delete i->CurrentItem();
@@ -141,7 +141,7 @@ void Keeper::LoadFromFile(ifstream&stream)
 void Keeper::SafeToFile(ofstream&stream)
 {	
 	stream << ConParts->Count() << endl;
-	IteratorPtr<Conference*> i = ConParts->GetCorrectIterator();
+	IteratorPtr<Conference*> i(ConParts->GetCorrectIterator());
 	for(i->First(); !i->IsDone(); i->Next())
 	{
 		stream << i->CurrentItem()->getType() << endl;

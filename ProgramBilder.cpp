@@ -28,7 +28,7 @@ ProgramBilder::ProgramBilder(const ProgramBilder&bild)
 
 ProgramBilder::~ProgramBilder(void)
 {
-	IteratorPtr<Presetion*> i = presentations->GetCorrectIterator();
+	IteratorPtr<Presetion*> i(presentations->GetCorrectIterator());
 	for(i->First(); !i->IsDone(); i->Next())
 		delete i->CurrentItem();
 	cout << "Object of class - ProgramBilder" << endl << "Magic method - destructor" << endl;

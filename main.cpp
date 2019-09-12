@@ -17,6 +17,7 @@ int main(void)
 {
 	cout << "Good day!=)" << endl;
 	Keeper *myKeeper = new Keeper;
+	Administrator *A = 0;
 	Conference *myConf = 0;
 	AdministratorBilder *aBild = 0;
 	ProgramBilder *pBild = 0;
@@ -263,7 +264,9 @@ int main(void)
 					{
 						cout << "Admin bild fin"<< endl;
 					}
-					myKeeper->deleteObj(&Administrator(*aBild));
+					A = new Administrator(*aBild);
+					myKeeper->deleteObj(A);
+					delete A;
 					break;
 				case SPE:
 					break;

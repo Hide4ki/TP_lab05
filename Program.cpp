@@ -40,7 +40,7 @@ Program::Program(const Program&myProg)
 
 Program::~Program(void)
 {
-	IteratorPtr<Presetion*> i = presentations->GetCorrectIterator();
+	IteratorPtr<Presetion*> i(presentations->GetCorrectIterator());
 	for(i->First(); !i->IsDone(); i->Next())
 		delete i->CurrentItem();
 	cout << "Object of class - Program" << endl << "Magic method - destructor" << endl;
@@ -51,7 +51,7 @@ void Program::WriteInFile(ofstream&stream)const
 {
 	stream << name   << endl; 
 	stream << dateSt << endl; 
-	IteratorPtr<Presetion*> i = presentations->GetCorrectIterator();
+	IteratorPtr<Presetion*> i(presentations->GetCorrectIterator());
 	stream << presentations->Count();
 	for(i->First(); !i->IsDone(); i->Next())
 		stream << *i->CurrentItem();
