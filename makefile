@@ -4,7 +4,7 @@ LDFLAGS=
 SOURCES=Administrator.cpp AdministratorBilder.cpp Bilder.cpp Conference.cpp main.cpp MyException.cpp Presetion.cpp Speaker.cpp SpeakerBilder.cpp WorkEnd.cpp Program.cpp  ProgramBilder.cpp Keeper.cpp
 
 BUILDDIR  = obj/
-
+DIR = C:\Users\nepos\Documents\GitHub\TP_lab05
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=lab1
 
