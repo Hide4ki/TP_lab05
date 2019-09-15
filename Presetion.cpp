@@ -7,16 +7,16 @@ Presetion::Presetion(void)
 
 Presetion::Presetion(time_t myTime,string&myName)
 {
+	cout << "Object of class - Presetion" << endl << "Magic method - constructor with parameters" << endl;
 	stTime = myTime;
 	name = myName;
-	cout << "Object of class - Presetion" << endl << "Magic method - constructor with parameters" << endl;
 }
 
 Presetion::Presetion(const Presetion&myPres)
 {
+	cout << "Object of class - Presetion" << endl << "Magic method - constructor for copy" << endl;
 	stTime = myPres.stTime;
 	name = myPres.name;
-	cout << "Object of class - Presetion" << endl << "Magic method - constructor for copy" << endl;
 }
 
 Presetion::~Presetion(void)
@@ -53,14 +53,18 @@ ofstream &operator<<(ofstream &stream, Presetion &myPresent)
 
 ifstream &operator>>(ifstream &stream,Presetion &myPresent)
 {
+	cout << "Input time start:";
 	stream >> myPresent.stTime;
+	cout << "Input name:";
 	stream >> myPresent.name;
 	return stream;
 }
 
 istream &operator>>(istream &stream,Presetion &myPresent)
 {
+	cout << "Input time start:";
 	stream >> myPresent.stTime;
+	cout << "Input name:";
 	stream >> myPresent.name;
 	return stream;
 }

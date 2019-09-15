@@ -3,16 +3,16 @@
 #include <ctime>
 #include "List.h"
 #include "Conference.h"
-#include "ProgramBilder.h"
+#include "ProgramBuilder.h"
 #include "Presetion.h"
 
 using namespace std;
-class ProgramBilder;
+class ProgramBuilder;
 
 class Program:public Conference
 {
 public:
-	Program(ProgramBilder&);
+	Program(ProgramBuilder&);
 	Program(const Program&);
 	~Program(void);
 	void WriteInFile(ofstream&)const override;

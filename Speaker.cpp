@@ -6,40 +6,40 @@ using namespace std;
 
 Speaker::Speaker(void)
 {
-	myType = SPE;
 	cout << "Object of class - Speaker" << endl << "Magic method - constructor without parameters" << endl;
+	myType = SPE;
 }
 
-Speaker::Speaker(SpeakerBilder &bild)
+Speaker::Speaker(SpeakerBuilder &Build)
 {
-	myType = SPE;
 	cout << "Object of class - Speaker" << endl << "Magic method - constructor with parameters" << endl;
+	myType = SPE;
 	string error = "Attempt to set Speaker without:";
-	if(bild.name=="")
+	if(Build.name=="")
 		error += " name,";
-	if(bild.surname=="")	
+	if(Build.surname=="")	
 		error += " surname,";
-	if(bild.father_name=="")	
+	if(Build.father_name=="")	
 		error += " father name,";
-	if(bild.organization=="")
+	if(Build.organization=="")
 		error += " organization,";
-	if(bild.myLecture=="")
+	if(Build.myLecture=="")
 		error += " myLecture.";
 	error[error.size()-1] = '.';
 	if(error!="Attempt to set Speaker without.")
-		throw MyException(error.c_str());
-	name		 = bild.name;
-	surname		 = bild.surname;
-	father_name	 = bild.father_name;
-	organization = bild.organization;
-	myLecture	 = bild.myLecture;	
-	annotation	 = bild.annotation;
+		throw MyException(error);
+	name		 = Build.name;
+	surname		 = Build.surname;
+	father_name	 = Build.father_name;
+	organization = Build.organization;
+	myLecture	 = Build.myLecture;	
+	annotation	 = Build.annotation;
 }
 
 Speaker::Speaker(const Speaker &mySpeaker)
 {
-	myType = SPE;
 	cout << "Object of class - Speaker" << endl << "Magic method - constructor for copy" << endl;
+	myType = SPE;
 	name		 = mySpeaker.name;
 	surname		 = mySpeaker.surname;
 	father_name	 = mySpeaker.father_name;

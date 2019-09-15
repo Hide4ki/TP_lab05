@@ -1,20 +1,18 @@
 #include "MyException.h"
 
-MyException::MyException(void)
+MyException::MyException(void):message("Exception is undefined")
 {
-	message = "Exception is undefined"; 
 	cout << "Object of class - MyException" << endl << "Magic method - constructor without parameters" << endl;
 }
 
-MyException::MyException(const char *m):message(m)
+MyException::MyException(const string m):message(m)
 {
 	cout << "Object of class - MyException" << endl << "Magic method - constructor with parameters" << endl;
 }
 
-MyException::MyException(const MyException &myException)
+MyException::MyException(const MyException &myException): message(myException.message)
 {
 	cout << "Object of class - MyException" << endl << "Magic method - constructor for copy" << endl;
-	message = myException.message;
 }
 
 MyException::~MyException(void)
@@ -24,6 +22,6 @@ MyException::~MyException(void)
 
 ostream &operator << (ostream &stream,const MyException &myException)
 {
-	stream << myException.message << endl;
+	stream << myException.message.c_str() << endl;
 	return stream;
 }

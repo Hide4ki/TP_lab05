@@ -6,10 +6,10 @@ using namespace std;
 class MyException
 {
 private: 
-	const char *message;
+	const string message;
 public:
 	MyException(void);
-	MyException(const char *);
+	MyException(const string);
 	MyException(const MyException &);
 	~MyException(void);
 	friend ostream &operator << (ostream &stream,const MyException &);

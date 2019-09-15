@@ -4,9 +4,9 @@
 #include "List.h"
 #include "IteratorPtr.h"
 #include "Conference.h"
-#include "AdministratorBilder.h"
-#include "SpeakerBilder.h"
-#include "ProgramBilder.h"
+#include "AdministratorBuilder.h"
+#include "SpeakerBuilder.h"
+#include "ProgramBuilder.h"
 
 using namespace std;
 

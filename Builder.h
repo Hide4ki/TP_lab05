@@ -6,13 +6,13 @@
 
 using namespace std;
 
-class Bilder
+class Builder
 {
 public:
-	Bilder(void);
-	Bilder(string&);
-	Bilder(const Bilder&);
-	virtual ~Bilder(void);
+	Builder(void);
+	Builder(string&);
+	Builder(const Builder&);
+	virtual ~Builder(void);
 	virtual void ReadInFile(ifstream&) = 0;
 };
 

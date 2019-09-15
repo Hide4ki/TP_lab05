@@ -1,15 +1,15 @@
 #pragma once
 
-#include "AdministratorBilder.h"
+#include "AdministratorBuilder.h"
 #include "Conference.h"
 
 using namespace std;
-class AdministratorBilder;
+class AdministratorBuilder;
 
 class Administrator:public Conference
 {
 public:
-	Administrator(AdministratorBilder &);
+	Administrator(AdministratorBuilder &);
 	Administrator(const Administrator &);
 	~Administrator(void);
 	void WriteInFile(ofstream&) const override;

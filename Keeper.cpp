@@ -2,30 +2,30 @@
 
 Keeper::Keeper(void)
 {
-	ConParts = new List<Conference*>;
 	cout << "Object of class - Keeper" << endl << "Magic method - constructor without parameters" << endl;
+	ConParts = new List<Conference*>;
 }
 
 Keeper::Keeper(ifstream &stream)
 {
+	cout << "Object of class - Keeper" << endl << "Magic method - constructor with parameters" << endl;
 	ConParts = new List<Conference*>;
 	LoadFromFile(stream);
-	cout << "Object of class - Keeper" << endl << "Magic method - constructor with parameters" << endl;
 }
 
 Keeper::Keeper(const Keeper&myKeeper)
 {
+	cout << "Object of class - Keeper" << endl << "Magic method - constructor for copy" << endl;
 	ConParts = new List<Conference*>;
 	*ConParts = *myKeeper.ConParts;
-	cout << "Object of class - Keeper" << endl << "Magic method - constructor for copy" << endl;
 }
 
 Keeper::~Keeper(void)
 {
+	cout << "Object of class - Keeper" << endl << "Magic method - destructor" << endl;
 	IteratorPtr<Conference*> i(ConParts->GetCorrectIterator());
 	for(i->First(); !i->IsDone(); i->Next())
 		delete i->CurrentItem();
-	cout << "Object of class - Keeper" << endl << "Magic method - destructor" << endl;
 	delete ConParts;
 }
 
@@ -107,9 +107,9 @@ void Keeper::LoadFromFile(ifstream&stream)
 	int cnt;
 	stream >> cnt;
 	int t;
-	AdministratorBilder *newAB = 0;
-	SpeakerBilder *newSB = 0;
-	ProgramBilder *newPB = 0;
+	AdministratorBuilder *newAB = 0;
+	SpeakerBuilder *newSB = 0;
+	ProgramBuilder *newPB = 0;
 
 	for(int i = 0; i<cnt; i++)
 	{
@@ -117,19 +117,19 @@ void Keeper::LoadFromFile(ifstream&stream)
 		switch((TYPE)t)
 		{
 			case ADM:
-				newAB = new AdministratorBilder;
+				newAB = new AdministratorBuilder;
 				stream >> *newAB;
 				ConParts->Append(new Administrator(*newAB));
 				delete newAB;
 				break;
 			case SPE:
-				newSB = new SpeakerBilder;
+				newSB = new SpeakerBuilder;
 				stream >> *newSB;
 				ConParts->Append(new Speaker(*newSB));
 				delete newSB;
 				break;
 			case PRO:
-				newPB = new ProgramBilder;
+				newPB = new ProgramBuilder;
 				stream >> *newPB;
 				ConParts->Append(new Program(*newPB));
 				delete newPB;

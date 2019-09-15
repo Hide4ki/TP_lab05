@@ -2,16 +2,16 @@
 
 #include <string>
 #include "List.h"
-#include "SpeakerBilder.h"
+#include "SpeakerBuilder.h"
 #include "Conference.h"
 
 using namespace std;
-class SpeakerBilder;
+class SpeakerBuilder;
 
 class Speaker:public Conference
 {
 public:
-	Speaker(SpeakerBilder&); 
+	Speaker(SpeakerBuilder&); 
 	Speaker(const Speaker&);
 	~Speaker(void);
 	void WriteInFile(ofstream&)const override;

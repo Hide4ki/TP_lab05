@@ -10,35 +10,35 @@ Administrator::Administrator(void)
 	cout << "Object of class - Administrator" << endl << "Magic method - constructor without parameters" << endl;
 }
 
-Administrator::Administrator(AdministratorBilder &bild)
+Administrator::Administrator(AdministratorBuilder &Build)
 {
-	myType = ADM;
 	cout << "Object of class - Administrator" << endl << "Magic method - constructor with parameters" << endl;
+	myType = ADM;
 	string error = "Attempt to set administrator without:";
-	if(bild.name=="")
+	if(Build.name=="")
 		error += " name,";
-	if(bild.surname=="")	
+	if(Build.surname=="")	
 		error += " surname,";
-	if(bild.father_name=="")	
+	if(Build.father_name=="")	
 		error += " father name,";
-	if(bild.position=="")
+	if(Build.position=="")
 		error += " position,";
-	if(bild.responsible=="")
+	if(Build.responsible=="")
 		error += " responsible.";
 	error[error.size()-1] = '.';
 	if(error!="Attempt to set administrator without.")
-		throw MyException(error.c_str());
-	name		= bild.name;
-	responsible	= bild.responsible;
-	position	= bild.position;
-	father_name	= bild.father_name;
-	surname		= bild.surname;
+		throw MyException(error);
+	name		= Build.name;
+	responsible	= Build.responsible;
+	position	= Build.position;
+	father_name	= Build.father_name;
+	surname		= Build.surname;
 }
 
 Administrator::Administrator(const Administrator &myAdmin)
 {
-	myType = ADM;
 	cout << "Object of class - Administrator" << endl << "Magic method - constructor for copy" << endl;
+	myType = ADM;
 	name		= myAdmin.name;
 	surname		= myAdmin.surname;
 	father_name	= myAdmin.father_name;

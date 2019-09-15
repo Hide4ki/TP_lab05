@@ -1,7 +1,7 @@
 CC=g++
 CFLAGS=-c -Wall
-LDFLAGS=
-SOURCES=Administrator.cpp AdministratorBilder.cpp Bilder.cpp Conference.cpp main.cpp MyException.cpp Presetion.cpp Speaker.cpp SpeakerBilder.cpp WorkEnd.cpp Program.cpp  ProgramBilder.cpp Keeper.cpp
+
+SOURCES=Administrator.cpp AdministratorBuilder.cpp Builder.cpp Conference.cpp main.cpp MyException.cpp Presetion.cpp Speaker.cpp SpeakerBuilder.cpp WorkEnd.cpp Program.cpp  ProgramBuilder.cpp Keeper.cpp
 
 BUILDDIR  = obj/
 DIR = C:\Users\nepos\Documents\GitHub\TP_lab05

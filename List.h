@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include "ListIterator.h"
-#define DEFUALT_LIST_CAPACITY 10
+#define DEFUALT_LIST_CAPACITY 2
 
 using namespace std;
 
