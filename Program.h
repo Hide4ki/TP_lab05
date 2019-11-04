@@ -4,7 +4,7 @@
 #include "List.h"
 #include "Conference.h"
 #include "ProgramBuilder.h"
-#include "Presetion.h"
+#include "Presentation.h"
 
 using namespace std;
 class ProgramBuilder;
@@ -20,6 +20,6 @@ public:
 private:
 	time_t dateSt;
 	string name;
-	List<Presetion*> *presentations;
+	List<Presentation*> *presentations;
 	Program(void);
 };

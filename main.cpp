@@ -219,7 +219,7 @@ int main(void)
 							{
 								string tmp;
 								time_t tmp1;
-								Presetion tmp2; 
+								Presentation tmp2; 
 								while(1)
 								{
 									cout << "Select param for set("\
@@ -457,7 +457,7 @@ int main(void)
 							pBild = new ProgramBuilder;
 							try
 							{
-								Presetion tmp2;						
+								Presentation tmp2;						
 								string tmp;
 								time_t tmp1;
 								while(1)

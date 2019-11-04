@@ -11,7 +11,7 @@ SpeakerBuilder::SpeakerBuilder(void)
 	father_name   = "";
 	organization  = "";
 	myLecture     = "";
-	annotation    = "";
+	annotation    = "NuLL";
 }
 
 SpeakerBuilder::SpeakerBuilder(string &name):name(name)
@@ -21,7 +21,7 @@ SpeakerBuilder::SpeakerBuilder(string &name):name(name)
 	father_name   = "";
 	organization  = "";
 	myLecture     = "";
-	annotation    = "";
+	annotation    = "NuLL";
 }
 
 SpeakerBuilder::SpeakerBuilder(const SpeakerBuilder &myBuilder)

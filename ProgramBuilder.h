@@ -2,7 +2,7 @@
 
 #include "Builder.h"
 #include "Program.h"
-#include "Presetion.h"
+#include "Presentation.h"
 
 typedef enum{PDATE, PNAME, PADDPRESENT, PFIN, PENDBILD} PBILD;
 
@@ -18,13 +18,13 @@ public:
 	void ReadInFile(ifstream&)override;
 	ProgramBuilder &SetDate(time_t&);
 	ProgramBuilder &SetName(string&);
-	ProgramBuilder &AddPresent(Presetion&);
+	ProgramBuilder &AddPresent(Presentation&);
 	friend ifstream &operator >> (ifstream&, ProgramBuilder&);
 	friend istream &operator >> (istream&, ProgramBuilder&);
 private:
 	friend Program;
 	time_t dateSt;
 	string name;
-	List<Presetion*> *presentations;
+	List<Presentation*> *presentations;
 };
 

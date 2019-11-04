@@ -1,6 +1,5 @@
 #include "Conference.h"
 
-
 Conference::Conference(void)
 {
 	cout << "Object of class - Conference" << endl << "Magic method - constructor without parameters" << endl;

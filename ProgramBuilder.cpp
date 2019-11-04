@@ -6,7 +6,7 @@ ProgramBuilder::ProgramBuilder(void)
 	cout << "Object of class - ProgramBuilder" << endl << "Magic method - constructor without parameters" << endl;
 	dateSt = 0;
 	name = "";
-	presentations = new List<Presetion*>;
+	presentations = new List<Presentation*>;
 }
 
 ProgramBuilder::ProgramBuilder(string&myName,time_t&myTime)
@@ -14,7 +14,7 @@ ProgramBuilder::ProgramBuilder(string&myName,time_t&myTime)
 	cout << "Object of class - ProgramBuilder" << endl << "Magic method - constructor with parameters" << endl;
 	dateSt = myTime;
 	name = myName;
-	presentations = new List<Presetion*>;
+	presentations = new List<Presentation*>;
 }
 
 ProgramBuilder::ProgramBuilder(const ProgramBuilder&Build)
@@ -22,14 +22,14 @@ ProgramBuilder::ProgramBuilder(const ProgramBuilder&Build)
 	cout << "Object of class - ProgramBuilder" << endl << "Magic method - constructor for copy" << endl;
 	dateSt = Build.dateSt;
 	name = Build.name;
-	presentations = new List<Presetion*>;
+	presentations = new List<Presentation*>;
 	*presentations = *Build.presentations;
 }
 
 ProgramBuilder::~ProgramBuilder(void)
 {
 	cout << "Object of class - ProgramBuilder" << endl << "Magic method - destructor" << endl;
-	IteratorPtr<Presetion*> i(presentations->GetCorrectIterator());
+	IteratorPtr<Presentation*> i(presentations->GetCorrectIterator());
 	for(i->First(); !i->IsDone(); i->Next())
 		delete i->CurrentItem();
 	delete presentations;
@@ -43,7 +43,7 @@ void ProgramBuilder::ReadInFile(ifstream&stream )
 	stream >> cnt;
 	for(int i = 0; i<cnt; i++)
 	{
-		Presetion *tmp = new Presetion;
+		Presentation *tmp = new Presentation;
 		stream >> *tmp;
 		presentations->Append(tmp);
 	}
@@ -61,7 +61,7 @@ ProgramBuilder &ProgramBuilder::SetName(string&myName)
 	return *this;
 }
 
-ProgramBuilder &ProgramBuilder::AddPresent(Presetion&tmp)
+ProgramBuilder &ProgramBuilder::AddPresent(Presentation&tmp)
 {
 	presentations->Append(&tmp);
 	return *this;
@@ -81,7 +81,7 @@ ifstream &operator >> (ifstream &stream, ProgramBuilder &myBuilder)
 	stream >> cnt;
  	for(int i = 0; i < cnt; i++)
 	{
-		Presetion *tmp = new Presetion;
+		Presentation *tmp = new Presentation;
 		stream >> *tmp;
 		myBuilder.presentations->Append(tmp);
 	}
@@ -105,7 +105,7 @@ istream &operator >> (istream &stream, ProgramBuilder &myBuilder)
 	stream >> cnt;
 	for (int i = 0; i < cnt; i++)
 	{
-		Presetion *tmp = new Presetion;
+		Presentation *tmp = new Presentation;
 		stream >> *tmp;
 		myBuilder.presentations->Append(tmp);
 	}

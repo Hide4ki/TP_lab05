@@ -7,7 +7,7 @@ Program::Program(void)
 {
 	cout << "Object of class - Program" << endl << "Magic method - constructor without parameters" << endl;
 	myType = PRO;
-	presentations = new List<Presetion*>;
+	presentations = new List<Presentation*>;
 }
 
 Program::Program(ProgramBuilder&Build)
@@ -22,30 +22,30 @@ Program::Program(ProgramBuilder&Build)
 	error[error.size()-1] = '.';
 	if(error!="Attempt to set program without.")
 		throw MyException(error);
-	presentations = new List<Presetion*>;
+	presentations = new List<Presentation*>;
 	name			= Build.name;
 	dateSt			= Build.dateSt;
-	IteratorPtr<Presetion*> i(Build.presentations->GetCorrectIterator());
+	IteratorPtr<Presentation*> i(Build.presentations->GetCorrectIterator());
 	for (i->First(); !i->IsDone(); i->Next())
-		presentations->Append(new Presetion(*i->CurrentItem()));
+		presentations->Append(new Presentation(*i->CurrentItem()));
 }
 
 Program::Program(const Program&myProg)
 {
 	cout << "Object of class - Program" << endl << "Magic method - constructor for copy" << endl;
 	myType = PRO;
-	presentations = new List<Presetion*>;
+	presentations = new List<Presentation*>;
 	name			= myProg.name;
 	dateSt			= myProg.dateSt;
-	IteratorPtr<Presetion*> i(myProg.presentations->GetCorrectIterator());
+	IteratorPtr<Presentation*> i(myProg.presentations->GetCorrectIterator());
 	for (i->First(); !i->IsDone(); i->Next())
-		presentations->Append(new Presetion(*i->CurrentItem()));
+		presentations->Append(new Presentation(*i->CurrentItem()));
 }
 
 Program::~Program(void)
 {
 	cout << "Object of class - Program" << endl << "Magic method - destructor" << endl;
-	IteratorPtr<Presetion*> i(presentations->GetCorrectIterator());
+	IteratorPtr<Presentation*> i(presentations->GetCorrectIterator());
 	for(i->First(); !i->IsDone(); i->Next())
 		delete i->CurrentItem();
 	delete presentations;
@@ -55,7 +55,7 @@ void Program::WriteInFile(ofstream&stream)const
 {
 	stream << name   << endl; 
 	stream << dateSt << endl; 
-	IteratorPtr<Presetion*> i(presentations->GetCorrectIterator());
+	IteratorPtr<Presentation*> i(presentations->GetCorrectIterator());
 	stream << presentations->Count()<< endl;
 	for(i->First(); !i->IsDone(); i->Next())
 		stream << *i->CurrentItem();
